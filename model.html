@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <style>
+        .section.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  background: #000;
+  padding: 30px 20px;
+  flex-wrap: wrap;
+}
+
+.section.button button {
+  padding: 15px 35px;
+  background: #000;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.section.button button:hover {
+  background: #fff;
+  color: #000;
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.3);
+}
+
+.section.button button:active {
+  transform: scale(0.96);
+}
+
+.section1 {
+  background-image: url(./images/section1.webp);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 500px;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  padding-left: 80px;
+  position: relative;
+  color: #fff;
+}
+
+.section2 {
+  background-image: url(./images/section2.webp);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 500px;
+  background-color: #000;
+  display: none;
+  align-items: center;
+  padding-left: 80px;
+  position: relative;
+  color: #fff;
+}
+
+.section3 {
+  background-image: url(./images/section3.webp);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 500px;
+  background-color: #000;
+  display: none;
+  align-items: center;
+  padding-left: 80px;
+  position: relative;
+  color: #fff;
+}
+
+.section4 {
+  background-image: url(./images/section4.webp);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 500px;
+  background-color: #000;
+  display: none;
+  align-items: center;
+  padding-left: 80px;
+  position: relative;
+  color: #fff;
+}
+
+.section1::before,
+.section2::before,
+.section3::before,
+.section4::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.302);
+}
+
+.section1 div,
+.section2 div,
+.section3 div,
+.section4 div {
+  position: relative;
+  z-index: 1;
+}
+
+.section1 h2,
+.section2 h2,
+.section3 h2,
+.section4 h2 {
+  font-size: 28px;
+  font-weight: 300;
+  margin: 0;
+  color: #ddd;
+}
+
+.section1 h1,
+.section2 h1,
+.section3 h1,
+.section4 h1 {
+  font-size: 65px;
+  margin: 15px 0 35px;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.section1 button,
+.section2 button,
+.section3 button,
+.section4 button {
+  width: 220px;
+  height: 55px;
+  background: #000;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-right: 15px;
+  transition: 0.3s;
+}
+
+.section1 button:hover,
+.section2 button:hover,
+.section3 button:hover,
+.section4 button:hover {
+  background: #fff;
+  color: #000;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.3);
+}
+
+.section1 button a,
+.section2 button a,
+.section3 button a,
+.section4 button a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  width: 100%;
+  height: 100%;
+  line-height: 50px;
+}
+    </style>
+
+     <div class="section">
+    <div class="section button"><button onclick="section1b()">URUS SE PERFOMANCE</button><button
+        onclick="section2b()">TEMERARIO</button><button onclick="section3b()">REVULTO</button><button
+        onclick="section4b()">URUS SE</button></div>
+    <div class="section1">
+      <div>
+        <h2>Configure your</h2>
+        <h1>Urus SE Performante</h1>
+        <button>START CONFIGURATION</button>
+        <button><a href="./enquiry.html">ENQUIRE</a></button>
+      </div>
+    </div>
+
+
+    <div class="section2">
+      <div>
+        <h2>Configure your</h2>
+        <h1>TEMPERARIO</h1>
+        <button>START CONFIGURATION</button>
+        <button><a href="./enquiry.html">ENQUIRE</a></button>
+      </div>
+
+    </div>
+    <div class="section3">
+      <div>
+        <h2>Configure your</h2>
+        <h1>REVULTO</h1>
+        <button>START CONFIGURATION</button>
+        <button><a href="./enquiry.html">ENQUIRE</a></button>
+      </div>
+    </div>
+    <div class="section4">
+      <div>
+        <h2>Configure your</h2>
+        <h1>URUS SE</h1>
+        <button>START CONFIGURATION</button>
+        <button><a href="./enquiry.html">ENQUIRE</a></button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    
+let section1 = document.querySelector(".section1");
+let section2 = document.querySelector(".section2");
+let section3 = document.querySelector(".section3");
+let section4 = document.querySelector(".section4");
+
+function section1b() {
+  section1.style.display = "block";
+  section2.style.display = "none";
+  section3.style.display = "none";
+  section4.style.display = "none";
+}
+
+function section2b() {
+  section1.style.display = "none";
+  section2.style.display = "block";
+  section3.style.display = "none";
+  section4.style.display = "none";
+}
+
+function section3b() {
+  section1.style.display = "none";
+  section2.style.display = "none";
+  section3.style.display = "block";
+  section4.style.display = "none";
+}
+
+function section4b() {
+  section1.style.display = "none";
+  section2.style.display = "none";
+  section3.style.display = "none";
+  section4.style.display = "block";
+}
+
+  </script>
+
+
+    
+</body>
+</html>

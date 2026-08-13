@@ -1,0 +1,56 @@
+{
+  "users": [
+    {
+      "firstname": "Pankaj",
+      "lastname": "Goswami",
+      "email": "Pankaj8232",
+      "id": "d0E30LBDAbw"
+    },
+    {
+      "firstname": "Mohit",
+      "lastname": "Pilani",
+      "email": "Mohit@123",
+      "id": "e_3QOtITHTA"
+    }
+  ],
+  "products": [
+    {
+      "date": "6 august 2026",
+      "heading": "REVEULTO SV SETS PRODUCTION LAP RECORD AT HOCKENHEIMRING",
+      "img": "https://www.lamborghini.com/sites/it-en/files/DAM/lamborghini/news/2026/08_06_revuelto_sv/cover.jpg",
+      "id": "n5M1ZWfnXbw",
+      "link": "https://www.lamborghini.com/sites/it-en/files/DAM/lamborghini/news/2026/08_06_revuelto_sv/cover.jpg"
+    },
+    {
+      "date": "5 august 2026",
+      "heading": "OUT OF THIS WORLD. THE LAMBORGHINI  MIURA  SV AT 55",
+      "img": "https://www.lamborghini.com/sites/it-en/files/DAM/lamborghini/news/2026/08_05_miura_sv/new/cover.jpg",
+      "id": "XoduYW7QA2o"
+    },
+    {
+      "date": "3 august 2026",
+      "heading": "LONG LIVE WITH THE MIURA!",
+      "img": "https://www.lamborghini.com/sites/it-en/files/DAM/lamborghini/news/2026/08_03_miura/cover.jpg",
+      "id": "YbTAkWGtxSI"
+    },
+    {
+      "date": "28 july 2026",
+      "heading": "THE ORIGIN OF THE SUPER VELOCE LEGACY ",
+      "img": "https://www.lamborghini.com/sites/it-en/files/DAM/lamborghini/news/2026/07_28_sv/cover.jpg",
+      "id": "BL4UWe8z1xc"
+    },
+    {
+      "date": "27 july 2026",
+      "heading": " Lamborghini Marks Miura's 60th Anniversary People 23 July 2026 Lamborghini appoints Francesco Milicia as Marketing Director",
+      "img": "https://www.lamborghini.com/sites/it-en/files/DAM/lamborghini/news/2026/07_27_60/cover.jpg",
+      "id": "zF4Ks0p_jyE"
+    },
+    {
+      "date": "4 july 2026",
+      "heading": "Lamborghini appoints Francesco Milicia as Marketing Director",
+      "img": "https://www.lamborghini.com/sites/it-en/files/DAM/lamborghini/news/2026/07_23_milicia/cover.jpg",
+      "id": "hHDDIOC9qEQ"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

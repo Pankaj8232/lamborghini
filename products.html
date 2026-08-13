@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    min-height:100vh;
+    padding:40px;
+    background:
+    linear-gradient(rgba(0,0,0,.82),rgba(0,0,0,.82)),
+    url("https://www.lamborghini.com/sites/it-en/files/DAM/lamborghini/news/2026/08_03_miura/cover.jpg");
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+}
+
+.container{
+    width:90%;
+    max-width:1100px;
+    margin:auto;
+    background:rgba(20,20,20,.96);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:18px;
+    padding:40px;
+    backdrop-filter:blur(10px);
+    box-shadow:0 20px 50px rgba(0,0,0,.55);
+}
+
+h1{
+    text-align:center;
+    color:#f4b400;
+    font-size:42px;
+    margin-bottom:35px;
+    letter-spacing:2px;
+}
+
+input,
+select{
+    width:100%;
+    height:55px;
+    margin:14px 0;
+    padding:0 18px;
+    background:#111;
+    color:#fff;
+    border:2px solid #333;
+    border-radius:8px;
+    font-size:16px;
+    transition:.3s;
+}
+
+input::placeholder{
+    color:#999;
+}
+
+select{
+    cursor:pointer;
+}
+
+input:focus,
+select:focus{
+    outline:none;
+    border-color:#f4b400;
+    box-shadow:0 0 15px rgba(244,180,0,.35);
+}
+
+button{
+    width:100%;
+    height:55px;
+    margin-top:18px;
+    border:none;
+    border-radius:8px;
+    background:#f4b400;
+    color:#000;
+    font-size:17px;
+    font-weight:700;
+    letter-spacing:1px;
+    cursor:pointer;
+    transition:.35s;
+}
+
+button:hover{
+    background:#ffd54f;
+    transform:translateY(-3px);
+    box-shadow:0 12px 25px rgba(244,180,0,.45);
+}
+
+table{
+    width:100%;
+    margin-top:35px;
+    border-collapse:collapse;
+    overflow:hidden;
+    border-radius:10px;
+}
+
+table th{
+    background:#f4b400;
+    color:#000;
+    padding:16px;
+    font-size:17px;
+}
+
+table td{
+    padding:15px;
+    text-align:center;
+    background:#181818;
+    color:#fff;
+    border:1px solid #333;
+    word-break:break-word;
+}
+
+table tr:nth-child(even) td{
+    background:#222;
+}
+
+table tr:hover td{
+    background:#2d2d2d;
+}
+
+.deleteproduct{
+    border:2px solid #ff4d4d;
+}
+
+.editproduct{
+    border:2px solid #f4b400;
+}
+
+.editdate,
+.editheading,
+.editlink{
+    background:#191919;
+}
+
+.section-title{
+    font-size:24px;
+    color:#f4b400;
+    margin:35px 0 15px;
+    padding-bottom:10px;
+    border-bottom:2px solid #f4b400;
+    letter-spacing:1px;
+}
+
+@media(max-width:768px){
+
+    body{
+        padding:15px;
+    }
+
+    .container{
+        width:100%;
+        padding:20px;
+    }
+
+    h1{
+        font-size:30px;
+    }
+
+    table{
+        display:block;
+        overflow-x:auto;
+        white-space:nowrap;
+    }
+
+    input,
+    select,
+    button{
+        height:50px;
+    }
+}
+    </style>
+     <div class="container">
+    <h1>🛒 Products section</h1>
+
+ 
+
+    <input type="text" placeholder="enter date" class="date">
+    <input type="text" placeholder="enter heading" class="heading">
+    <input type="text" placeholder="enter img link" class="link">
+    <button onclick="postproducts()">submit</button>
+
+    <table border="2px" cellspacing="5px" cellpadding="5px">
+        <tr>
+            <th>date</th>
+            <th>heading</th>
+            <th>product</th>
+        </tr>
+    </table>
+
+    <select name="" class="deleteproduct" onchange="deletedata()">
+        <option value="" disabled selected>select product for delete</option>
+    </select>
+
+    <input type="text" placeholder="enter edited date " class="editdate">
+    <input type="text" placeholder="enter edit heading" class="editheading">
+    <input type="text" placeholder="enter edited img link" class="editlink">
+    <select name="" id="" class="editproduct" onchange="editdata()">
+        <option value="" disabled selected>select product for edit</option>
+    </select>
+
+    </div>
+
+    <script>
+        async function postproducts(){
+            let link=document.querySelector(".link").value;
+            let date=document.querySelector(".date").value;
+            let heading=document.querySelector(".heading").value;
+
+           if(window.confirm("are you sure to add product")){
+              let data={date:date,heading:heading,img:link}
+            let apilink=await fetch("http://localhost:3000/products",{
+                method:"POST",
+                body:JSON.stringify(data),
+                headers:{
+                    "Content-Type":"application/json"
+                }
+            })
+             alert("product added successfully")
+           }
+           window.location.reload()
+        }
+
+       async function getprodcuts(){
+        let apilink=await fetch("http://localhost:3000/products")
+        let data=await apilink.json()
+        let table=document.querySelector("table")
+        let deleteproduct=document.querySelector(".deleteproduct")
+        let editproduct=document.querySelector(".editproduct")
+        for(let i=0;i<data.length;i++){
+            table.innerHTML+=`
+            <tr>
+                <td>${data[i].date}</td>
+               <td>${data[i].heading}</td>
+               <td>${data[i].img}</td> 
+            </tr>            
+            `
+            deleteproduct.innerHTML+=`
+            <option value="${data[i].id}">${data[i].date}</option>
+            `
+            editproduct.innerHTML+=`
+            <option value="${data[i].id}">${data[i].date}</option>
+            `
+        }         
+       }
+
+       getprodcuts()
+
+       async function deletedata(){
+        let deleteproduct=document.querySelector(".deleteproduct").value;
+        if(window.confirm("are you sure to delete data")){
+             let apilink=await fetch(`http://localhost:3000/products/${deleteproduct}`,{
+            method:"DELETE"
+        })
+        alert("product deleted successfully")
+        }
+        window.location.reload()
+       }
+
+       async function editdata(){
+        let editproduct=document.querySelector(".editproduct").value;
+        let editdate=document.querySelector(".editdate").value;
+        let editheading=document.querySelector(".editheading").value;
+        let editlink=document.querySelector(".editlink").value;
+
+       if(window.confirm("are you sure to edit data")){
+          let apilink=await fetch(`http://localhost:3000/products/${editproduct}`,{
+            method:"PATCH",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify({date:editdate,heading:editheading,img:editlink})
+        })
+            alert("product edited successfully")
+       }
+        window.location.reload()
+       }
+
+
+
+
+    </script>
+
+    
+</body>
+</html>

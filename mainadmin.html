@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+  * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #050505;
+  overflow: hidden;
+}
+
+.admin {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  background: #050505;
+}
+
+.sidebar {
+  width: 270px;
+  height: 100vh;
+  flex-shrink: 0;
+  background: linear-gradient(180deg, #111, #070707);
+  border-right: 1px solid #292929;
+  padding: 110px 20px 30px;
+  position: relative;
+  box-shadow: 10px 0 40px rgba(0, 0, 0, 0.4);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.sidebar::before {
+  content: "ADMIN PANEL";
+  position: absolute;
+  top: 35px;
+  left: 25px;
+  color: #f4b400;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.sidebar::after {
+  content: "";
+  position: absolute;
+  top: 65px;
+  left: 25px;
+  width: 45px;
+  height: 3px;
+  background: #f4b400;
+}
+
+.sidebar h3 {
+  margin-bottom: 15px;
+}
+
+.sidebar h3 a {
+  display: flex;
+  align-items: center;
+  min-height: 62px;
+  padding: 0 22px;
+  background: #111;
+  border: 1px solid #292929;
+  border-radius: 5px;
+  color: #ddd;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  transition: 0.35s ease;
+}
+
+.sidebar h3 a:hover {
+  background: #f4b400;
+  color: #000;
+  border-color: #f4b400;
+  transform: translateX(6px);
+  box-shadow: 0 10px 25px rgba(244, 180, 0, 0.2);
+}
+
+.sidebar2 {
+  flex: 1;
+  min-width: 0;
+  height: 100vh;
+  position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background:
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(244, 180, 0, 0.08),
+      transparent 25%
+    ),
+    #080808;
+  scrollbar-width: auto;
+  scrollbar-color: #fff #111;
+}
+
+.sidebar2::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px
+    );
+  background-size: 50px 50px;
+}
+
+.sidebar2::after {
+  content: "WELCOME TO ADMIN DASHBOARD";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgba(255, 255, 255, 0.04);
+  font-size: 55px;
+  font-weight: 900;
+  letter-spacing: 5px;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.sidebar2 h1 {
+  position: relative;
+  z-index: 2;
+  width: 90%;
+  margin: 50px auto 0;
+  color: #f4b400;
+}
+
+table {
+  position: relative;
+  z-index: 2;
+  width: 90%;
+  margin: 20px auto 50px;
+  border-collapse: collapse;
+  table-layout: fixed;
+  background: #111;
+  color: #fff;
+  border: 1px solid #292929;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
+
+tr {
+  transition: 0.3s ease;
+}
+
+tr:hover {
+  background: #1c1c1c;
+}
+
+th {
+  padding: 18px 20px;
+  background: #f4b400;
+  color: #000;
+  border: 1px solid #292929;
+  text-align: left;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  word-break: break-word;
+}
+
+td {
+  padding: 16px 20px;
+  background: #111;
+  color: #ddd;
+  border: 1px solid #292929;
+  font-size: 15px;
+  transition: 0.3s ease;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+
+.sidebar2::-webkit-scrollbar {
+  width: 12px;
+}
+
+.sidebar2::-webkit-scrollbar-track {
+  background: #111;
+}
+
+.sidebar2::-webkit-scrollbar-thumb {
+  background: #fff;
+  border-radius: 6px;
+  border: 2px solid #111;
+}
+
+.sidebar2::-webkit-scrollbar-thumb:hover {
+  background: #f4b400;
+}
+
+.sidebar::-webkit-scrollbar {
+  width: 10px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: #111;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: #fff;
+  border-radius: 5px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background: #f4b400;
+}
+
+@media (max-width: 800px) {
+  body {
+    overflow: auto;
+  }
+
+  .admin {
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    padding: 100px 20px 25px;
+    border-right: none;
+    border-bottom: 1px solid #292929;
+    overflow-x: hidden;
+  }
+
+  .sidebar2 {
+    width: 100%;
+    height: auto;
+    min-height: 600px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-bottom: 30px;
+  }
+
+  table {
+    width: 90%;
+  }
+
+  .sidebar2::after {
+    font-size: 30px;
+    white-space: normal;
+    width: 90%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 450px) {
+  .sidebar {
+    padding: 95px 15px 20px;
+  }
+
+  .sidebar h3 a {
+    min-height: 55px;
+    font-size: 12px;
+    padding: 0 17px;
+  }
+
+  .sidebar2 {
+    min-height: 500px;
+  }
+
+  table {
+    width: 94%;
+  }
+
+  th {
+    padding: 12px 10px;
+    font-size: 11px;
+  }
+
+  td {
+    padding: 12px 10px;
+    font-size: 12px;
+  }
+}
+  </style>
+</head>
+
+<body>
+
+
+  <div class="admin">
+
+    <div class="sidebar">
+      <h3>
+        <a href="./enquiryget.html">Enquiries</a>
+      </h3>
+
+      <h3>
+        <a href="./products.html">Products Section</a>
+      </h3>
+    </div>
+
+    <div class="sidebar2">
+      <h1>Enquires</h1>
+        <table border="2px" cellsapcing="5px" cellpadding="5px" class="table1">
+            <tr>
+                <th>first name</th>
+                <th>last name</th>
+                <th>email</th>
+            </tr>
+        </table>
+        <h1>Products</h1>
+          <table border="2px" cellspacing="5px" cellpadding="5px" class="table2">
+        <tr>
+            <th>date</th>
+            <th>heading</th>
+            <th>product</th>
+        </tr>
+    </table>
+    </div>
+
+  </div>
+
+
+  <script>
+            async function getdata() {
+            let apilink = await fetch("http://localhost:3000/users");
+            let data = await apilink.json();
+
+            let table1 = document.querySelector(".table1");
+            let deleteuser = document.querySelector("#deleteuser");
+            let editdata = document.querySelector("#editdata");
+
+            for (let i = 0; i < data.length; i++) {
+                table1.innerHTML += `
+                <tr>
+                    <td>${data[i].firstname}</td>
+                    <td>${data[i].lastname}</td>
+                    <td>${data[i].email}</td>
+                </tr>
+            `;
+            }
+        }
+        getdata();
+        async function getprodcuts(){
+        let apilink=await fetch("http://localhost:3000/products")
+        let data=await apilink.json()
+        let table2=document.querySelector(".table2")
+        let deleteproduct=document.querySelector(".deleteproduct")
+        let editproduct=document.querySelector(".editproduct")
+        for(let i=0;i<data.length;i++){
+            table2.innerHTML+=`
+            <tr>
+                <td>${data[i].date}</td>
+               <td>${data[i].heading}</td>
+               <td>${data[i].img}</td> 
+            </tr>            
+            `
+        }         
+       }
+         getprodcuts()
+
+  </script>
+
+</body>
+</html>
+

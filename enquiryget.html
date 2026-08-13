@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enquiries</title>
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f5f5;
+            color: #111;
+            min-height: 100vh;
+            padding: 50px 6%;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 48px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 40px;
+            color: #111;
+        }
+
+        h1::after {
+            content: "";
+            display: block;
+            width: 70px;
+            height: 4px;
+            background: #f4b400;
+            margin: 12px auto 0;
+        }
+
+        table {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto 40px;
+            border-collapse: collapse;
+            background: #fff;
+            border: 2px solid #111;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
+        }
+
+        table tr:first-child {
+            background: #111;
+        }
+
+        table th {
+            padding: 18px 20px;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: left;
+            color: #fff;
+            border: 1px solid #333;
+        }
+
+        table td {
+            padding: 18px 20px;
+            font-size: 16px;
+            font-weight: 500;
+            color: #111;
+            background: #fff;
+            border: 1px solid #ddd;
+        }
+
+        table tr:hover td {
+            background: #fff8df;
+        }
+
+        #deleteuser,
+        #editdata {
+            display: block;
+            width: 100%;
+            max-width: 500px;
+            height: 52px;
+            margin: 20px auto;
+            padding: 0 18px;
+            border: 2px solid #222;
+            background: #fff;
+            color: #111;
+            font-size: 15px;
+            font-weight: 600;
+            outline: none;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        #deleteuser:hover,
+        #editdata:hover {
+            border-color: #f4b400;
+            box-shadow: 0 5px 15px rgba(244, 180, 0, 0.2);
+        }
+
+        #deleteuser:focus,
+        #editdata:focus {
+            border-color: #f4b400;
+            box-shadow: 0 0 0 3px rgba(244, 180, 0, 0.15);
+        }
+
+        #editfirst,
+        #editlast,
+        #editemail {
+            display: block;
+            width: 100%;
+            max-width: 500px;
+            height: 52px;
+            margin: 15px auto;
+            padding: 0 18px;
+            border: 2px solid #ddd;
+            background: #fff;
+            color: #111;
+            font-size: 15px;
+            outline: none;
+            transition: 0.3s ease;
+        }
+
+        #editfirst {
+            margin-top: 35px;
+        }
+
+        #editfirst:focus,
+        #editlast:focus,
+        #editemail:focus {
+            border-color: #f4b400;
+            box-shadow: 0 0 0 3px rgba(244, 180, 0, 0.15);
+        }
+
+        #editfirst::placeholder,
+        #editlast::placeholder,
+        #editemail::placeholder {
+            color: #777;
+        }
+
+        select option {
+            color: #111;
+            background: #fff;
+        }
+
+        @media (max-width: 700px) {
+            body {
+                padding: 30px 15px;
+            }
+
+            h1 {
+                font-size: 34px;
+                margin-bottom: 30px;
+            }
+
+            table th {
+                padding: 14px 10px;
+                font-size: 12px;
+            }
+
+            table td {
+                padding: 14px 10px;
+                font-size: 14px;
+            }
+
+            #deleteuser,
+            #editdata,
+            #editfirst,
+            #editlast,
+            #editemail {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 450px) {
+            body {
+                padding: 25px 10px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            table th {
+                padding: 12px 6px;
+                font-size: 10px;
+            }
+
+            table td {
+                padding: 12px 6px;
+                font-size: 12px;
+            }
+
+            #deleteuser,
+            #editdata,
+            #editfirst,
+            #editlast,
+            #editemail {
+                height: 48px;
+                font-size: 13px;
+            }
+        }
+    </style>
+
+</head>
+<body>
+
+    <h1>Enquires</h1>
+
+    <table border="2px" cellspacing="5px" cellpadding="5px">
+        <tr>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Email</th>
+        </tr>
+    </table>
+
+    <select name="" id="deleteuser" onchange="deletedata()">
+        <option value="" selected disabled>select user for delete</option>
+    </select>
+
+    <input type="text" placeholder="edit first name" id="editfirst">
+    <input type="text" placeholder="enter last name" id="editlast">
+    <input type="text" placeholder="enter email" id="editemail">
+
+    <select name="" id="editdata" onchange="edituser()">
+        <option value="" disabled selected>select user for edit</option>
+    </select>
+
+    <script>
+        async function getdata() {
+            let apilink = await fetch("http://localhost:3000/users");
+            let data = await apilink.json();
+
+            let table = document.querySelector("table");
+            let deleteuser = document.querySelector("#deleteuser");
+            let editdata = document.querySelector("#editdata");
+
+            for (let i = 0; i < data.length; i++) {
+                table.innerHTML += `
+                <tr>
+                    <td>${data[i].firstname}</td>
+                    <td>${data[i].lastname}</td>
+                    <td>${data[i].email}</td>
+                </tr>
+            `;
+
+                deleteuser.innerHTML += `
+                <option value="${data[i].id}">
+                    ${data[i].firstname}
+                </option>
+            `;
+
+                editdata.innerHTML += `
+                <option value="${data[i].id}">
+                    ${data[i].firstname}
+                </option>
+            `;
+            }
+        }
+
+        getdata();
+
+        async function deletedata() {
+            let deleteuser = document.querySelector("#deleteuser").value;
+
+            if (window.confirm("Are you sure to delete user")) {
+                await fetch(`http://localhost:3000/users/${deleteuser}`, {
+                    method: "DELETE"
+                });
+
+                alert("User deleted");
+            }
+
+            window.location.reload();
+        }
+
+        async function edituser() {
+            let editdata = document.querySelector("#editdata").value;
+            let editfirst = document.querySelector("#editfirst").value;
+            let editlast = document.querySelector("#editlast").value;
+            let editemail = document.querySelector("#editemail").value;
+
+            if (window.confirm("Are you sure to edit user data")) {
+                await fetch(`http://localhost:3000/users/${editdata}`, {
+                    method: "PATCH",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        firstname: editfirst,
+                        lastname: editlast,
+                        email: editemail
+                    })
+                });
+
+                alert("User edited successfully");
+            }
+
+            window.location.reload();
+        }
+    </script>
+
+</body>
+
+</html>
