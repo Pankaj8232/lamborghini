@@ -303,18 +303,23 @@ body {
 }
 
 .popupurus2 {
-  height: 400px;
-  width: 1200px;
+  width: 90vw;
+  max-width: 1200px;
+  height: auto;
+  max-height: 80vh;
   position: fixed;
-  top: 200px;
-  left: 100px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 10000;
-  object-fit: cover;
 }
 
 .popupurus2 img {
-  height: 85%;
   width: 100%;
+  height: auto;
+  max-height: 80vh;
+  object-fit: contain;
+  display: block;
 }
 
 .explore {
@@ -1234,11 +1239,16 @@ body {
   }
 
   .popupurus2 {
-    width: 94%;
-    height: 45%;
-    left: 3%;
-    top: 27%;
+    width: 94vw;
+    max-height: 70vh;
   }
+
+  .popupurus2 img {
+    max-height: 70vh;
+  }
+}
+
+
 
   .search {
     width: calc(100% - 30px);
