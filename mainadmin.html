@@ -319,7 +319,11 @@ td {
       <h3>
         <a href="./products.html">Products Section</a>
       </h3>
+      <h3>
+      <a href="./loginpage.html">Users Data</a>
+    </h3>
     </div>
+    
 
     <div class="sidebar2">
       <h1>Enquires</h1>
@@ -336,6 +340,15 @@ td {
             <th>date</th>
             <th>heading</th>
             <th>product</th>
+        </tr>
+    </table>
+     <h1>Users Data</h1>
+          <table border="2px" cellspacing="5px" cellpadding="5px" class="table3">
+        <tr>
+            <th>Name</th>
+            <th>Number</th>
+            <th>Email</th>
+            <th>Password</th>
         </tr>
     </table>
     </div>
@@ -355,7 +368,7 @@ td {
             for (let i = 0; i < data.length; i++) {
                 table1.innerHTML += `
                 <tr>
-                    <td>${data[i].firstname}</td>
+                   <td>${data[i].firstname}</td>
                     <td>${data[i].lastname}</td>
                     <td>${data[i].email}</td>
                 </tr>
@@ -380,6 +393,27 @@ td {
         }         
        }
          getprodcuts()
+
+         async function getusers(){
+          let apilink=await fetch("http://localhost:3000/login")
+          let data=await apilink.json()
+          let table3=document.querySelector(".table3")
+          for(let i=0;i<data.length;i++){
+            table3.innerHTML+=`
+             <tr>
+                <td>${data[i].name}</td>
+               <td>${data[i].number}</td>
+               <td>${data[i].email}</td>
+               <td>${data[i].password}</td> 
+            </tr>              
+            `
+          }
+          
+         }
+
+         getusers()
+
+
 
   </script>
 

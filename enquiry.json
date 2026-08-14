@@ -52,5 +52,14 @@
       "id": "hHDDIOC9qEQ"
     }
   ],
+  "login": [
+    {
+      "name": "Pankaj",
+      "number": "1234567890",
+      "email": "Pankaj@123",
+      "password": "123456",
+      "id": "F-NViLgYZQs"
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }
