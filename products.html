@@ -151,31 +151,168 @@ table tr:hover td{
     letter-spacing:1px;
 }
 
-@media(max-width:768px){
-
-    body{
-        padding:15px;
+@media (max-width: 768px) {
+    body {
+        padding: 20px 12px;
+        background-attachment:scroll;
     }
 
-    .container{
-        width:100%;
-        padding:20px;
+    .container {
+        width: 100%;
+        padding: 25px 18px;
+        border-radius: 14px;
     }
 
-    h1{
-        font-size:30px;
+    h1 {
+        font-size: 30px;
+        margin-bottom: 25px;
     }
 
-    table{
-        display:block;
-        overflow-x:auto;
-        white-space:nowrap;
+    input,
+    select {
+        height: 52px;
+        margin: 10px 0;
+        padding: 0 14px;
+        font-size: 14px;
+    }
+
+    button {
+        height: 52px;
+        margin-top: 15px;
+        font-size: 15px;
+    }
+
+    .section-title {
+        font-size: 20px;
+        margin: 25px 0 12px;
+    }
+
+    table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        margin-top: 25px;
+        white-space: nowrap;
+        border-collapse: collapse;
+    }
+
+    table th {
+        padding: 13px 15px;
+        font-size: 14px;
+    }
+
+    table td {
+        padding: 12px 15px;
+        font-size: 13px;
+    }
+
+    .deleteproduct,
+    .editproduct {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .editdate,
+    .editheading,
+    .editlink {
+        width: 100%;
+        margin-top: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        padding: 22px 14px;
+        border-radius: 12px;
+    }
+
+    h1 {
+        font-size: 25px;
+        letter-spacing: 1px;
+        margin-bottom: 22px;
+    }
+
+    input,
+    select {
+        height: 48px;
+        margin: 8px 0;
+        padding: 0 12px;
+        font-size: 13px;
+        border-width: 1px;
+    }
+
+    button {
+        height: 48px;
+        margin-top: 12px;
+        font-size: 14px;
+    }
+
+    table {
+        margin-top: 22px;
+    }
+
+    table th {
+        padding: 11px 13px;
+        font-size: 13px;
+    }
+
+    table td {
+        padding: 10px 13px;
+        font-size: 12px;
+    }
+
+    .deleteproduct,
+    .editproduct {
+        margin-top: 18px;
+    }
+
+    .editdate,
+    .editheading,
+    .editlink {
+        margin-top: 12px;
+    }
+}
+
+@media (max-width: 360px) {
+    body {
+        padding: 7px;
+    }
+
+    .container {
+        padding: 20px 12px;
+    }
+
+    h1 {
+        font-size: 22px;
     }
 
     input,
     select,
-    button{
-        height:50px;
+    button {
+        height: 46px;
+    }
+
+    input,
+    select {
+        font-size: 12px;
+    }
+
+    button {
+        font-size: 13px;
+    }
+
+    table th {
+        padding: 9px 11px;
+        font-size: 12px;
+    }
+
+    table td {
+        padding: 9px 11px;
+        font-size: 11px;
     }
 }
     </style>

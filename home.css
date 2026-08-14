@@ -876,52 +876,183 @@ body {
   color: #f4b400;
 }
 
-
-@media (max-width: 992px) {
+@media (max-width: 1200px) {
   .header {
-    position: static;
-    padding: 0 25px;
-  }
-
-  .banner {
-    margin-top: 0;
+    padding: 0 30px;
   }
 
   .aboutbanner h1 {
-    font-size: 50px;
+    font-size: 56px;
   }
 
   .models {
-    padding: 50px 5%;
+    padding: 50px 6%;
   }
 
-  .models h1 {
-    font-size: 40px;
-  }
-
-  .aboutmodels {
-    font-size: 38px;
-  }
-
-  .popupurus2 {
-    width: 90%;
-    height: 70%;
-    left: 5%;
-    top: 15%;
+  .swiper-slide img:last-child {
+    width: 92%;
   }
 
   .section1,
   .section2,
   .section3,
   .section4 {
-    padding-left: 50px;
+    padding-left: 60px;
   }
 
   .section1 h1,
   .section2 h1,
   .section3 h1,
   .section4 h1 {
-    font-size: 50px;
+    font-size: 55px;
+  }
+
+  .products {
+    width: 92%;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+  }
+
+  .footer {
+    padding: 60px 5%;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 992px) {
+  .header {
+    height: 75px;
+    padding: 0 25px;
+  }
+
+  .header img {
+    height: 50px;
+  }
+
+  .banner {
+    margin-top: 75px;
+    height: calc(100vh - 75px);
+    min-height: 550px;
+  }
+
+  .aboutbanner h1 {
+    font-size: 48px;
+    padding: 0 20px;
+  }
+
+  .bannerbutton {
+    margin-top: 25px;
+    padding: 14px 32px;
+  }
+
+  .belowbanner {
+    padding: 22px 30px;
+  }
+
+  .belowbanner p {
+    font-size: 14px;
+  }
+
+  .models {
+    padding: 45px 5%;
+  }
+
+  .models h1 {
+    font-size: 40px;
+  }
+
+  .discover h2 {
+    font-size: 20px;
+  }
+
+  .swiper {
+    padding-bottom: 60px;
+  }
+
+  .swiper-slide {
+    padding: 15px;
+  }
+
+  .modelslogo {
+    width: 145px;
+  }
+
+  .aboutmodels {
+    font-size: 36px;
+  }
+
+  .swiper-slide img:last-child {
+    width: 95%;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    transform: scale(0.8);
+  }
+
+  .lambomodels {
+    padding: 0 30px;
+    gap: 40px;
+  }
+
+  .lambomodels h2 {
+    font-size: 20px;
+  }
+
+  .explore {
+    gap: 15px;
+    margin: 40px 20px;
+  }
+
+  .explore1,
+  .explore2,
+  .explore3 {
+    width: 220px;
+    height: 60px;
+  }
+
+  .msg {
+    width: 88%;
+    font-size: 16px;
+  }
+
+  .section.button {
+    gap: 15px;
+    padding: 25px 20px;
+  }
+
+  .section.button button {
+    padding: 14px 25px;
+  }
+
+  .section1,
+  .section2,
+  .section3,
+  .section4 {
+    height: 470px;
+    padding-left: 55px;
+  }
+
+  .section1 h2,
+  .section2 h2,
+  .section3 h2,
+  .section4 h2 {
+    font-size: 24px;
+  }
+
+  .section1 h1,
+  .section2 h1,
+  .section3 h1,
+  .section4 h1 {
+    font-size: 48px;
+    margin: 12px 0 30px;
+  }
+
+  .section1 button,
+  .section2 button,
+  .section3 button,
+  .section4 button {
+    width: 200px;
   }
 
   .products {
@@ -931,173 +1062,333 @@ body {
   }
 
   .footer {
-    justify-content: space-evenly;
-    flex-wrap: wrap;
+    padding: 55px 5%;
+    justify-content: space-between;
+    gap: 40px 20px;
+  }
+
+  .footer ul {
+    min-width: 150px;
+  }
+
+  .footer2 {
+    padding: 35px 6%;
+  }
+
+  .footer3 {
+    padding: 40px 6% 50px;
   }
 
   .search {
-    right: 30px;
+    top: 75px;
+    right: 25px;
   }
 
   .ask {
-    right: 30px;
+    top: 75px;
+    right: 25px;
   }
 }
 
 @media (max-width: 768px) {
   .header {
-    height: 70px;
-    padding: 0 20px;
+    height: 68px;
+    padding: 0 18px;
   }
 
   .header img {
-    height: 48px;
+    height: 45px;
   }
 
   .menu {
-    font-size: 16px;
+    gap: 7px;
+    font-size: 15px;
+  }
+
+  .header i {
+    font-size: 18px;
+    margin-left: 10px;
   }
 
   .banner {
-    height: 80vh;
+    margin-top: 68px;
+    height: calc(100vh - 68px);
+    min-height: 500px;
+    background-position: center;
+  }
+
+  .aboutbanner {
+    width: 100%;
+    padding: 0 20px;
   }
 
   .aboutbanner h1 {
-    font-size: 40px;
+    font-size: clamp(32px, 7vw, 48px);
+    letter-spacing: 1px;
+    line-height: 1.15;
+  }
+
+  .bannerbutton {
+    margin-top: 25px;
+    padding: 13px 28px;
+    font-size: 16px;
   }
 
   .belowbanner {
     padding: 20px;
   }
 
+  .belowbanner p {
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
   .models {
     flex-direction: column;
-    gap: 20px;
+    justify-content: center;
+    gap: 12px;
     text-align: center;
-    padding: 40px 20px;
+    padding: 40px 20px 25px;
   }
 
   .models h1 {
-    font-size: 35px;
+    font-size: 34px;
   }
 
-  .aboutmodels {
-    font-size: 30px;
+  .discover h2 {
+    font-size: 18px;
+  }
+
+  .swiper {
+    padding: 15px 0 55px;
+  }
+
+  .swiper-slide {
+    padding: 10px 25px;
   }
 
   .modelslogo {
-    width: 140px;
+    width: 125px;
+    max-width: 45%;
+    margin-bottom: 15px;
+  }
+
+  .aboutmodels {
+    font-size: clamp(24px, 5vw, 32px);
+    margin: 15px 0 20px;
+  }
+
+  .swiper-slide img:last-child {
+    width: 100%;
+    border-radius: 8px;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    transform: scale(0.65);
   }
 
   .lambomodels {
+    justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 20px 30px;
+    padding: 0 20px;
+    text-align: center;
+  }
+
+  .lambomodels h2 {
+    font-size: 17px;
   }
 
   .explore {
-    gap: 15px;
-    margin: 35px 15px;
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+    margin: 30px 0;
+    padding: 0 20px;
   }
 
   .explore1,
   .explore2,
   .explore3 {
-    width: 220px;
-    height: 55px;
+    width: 100%;
+    max-width: 360px;
+    height: 58px;
   }
 
   .msg {
     width: 90%;
-    font-size: 16px;
+    margin: 20px auto 30px;
+    font-size: 15px;
+    line-height: 1.7;
   }
 
   .section.button {
-    padding: 25px 15px;
+    flex-direction: column;
+    gap: 10px;
+    padding: 25px 20px;
   }
 
   .section.button button {
     width: 100%;
-    max-width: 300px;
+    max-width: 360px;
+    padding: 14px 20px;
   }
 
   .section1,
   .section2,
   .section3,
   .section4 {
-    height: 420px;
-    padding-left: 35px;
+    height: 430px;
+    min-height: 430px;
+    padding: 30px;
+    align-items: center;
+    background-position: center;
+  }
+
+  .section1 div,
+  .section2 div,
+  .section3 div,
+  .section4 div {
+    width: 100%;
+    max-width: 600px;
   }
 
   .section1 h2,
   .section2 h2,
   .section3 h2,
   .section4 h2 {
-    font-size: 22px;
+    font-size: 21px;
   }
 
   .section1 h1,
   .section2 h1,
   .section3 h1,
   .section4 h1 {
-    font-size: 40px;
+    font-size: clamp(32px, 7vw, 45px);
+    line-height: 1.1;
+    margin: 12px 0 25px;
+    letter-spacing: 1px;
   }
 
   .section1 button,
   .section2 button,
   .section3 button,
   .section4 button {
-    width: 190px;
+    width: 100%;
+    max-width: 220px;
     height: 50px;
+    margin-right: 8px;
+    margin-bottom: 10px;
   }
 
   .products {
     width: 90%;
     grid-template-columns: 1fr;
     gap: 25px;
+    margin: 40px auto;
   }
 
   .products1 div {
-    height: 230px;
+    height: 250px;
+  }
+
+  .products1 h3 {
+    font-size: 25px;
+  }
+
+  .products1 h4 {
+    font-size: 15px;
   }
 
   .footer {
-    padding: 50px 25px;
-    gap: 35px;
+    padding: 45px 25px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 35px 25px;
   }
 
   .footer ul {
-    width: 40%;
+    width: 100%;
+    min-width: 0;
   }
 
-  .footer2,
+  .footer ul li {
+    font-size: 13px;
+    line-height: 2;
+  }
+
+  .footer ul li:first-child {
+    font-size: 15px;
+  }
+
+  .footer ul:last-child {
+    grid-column: 1 / -1;
+    text-align: center;
+  }
+
+  .footer ul:last-child li i {
+    margin: 0 8px;
+  }
+
+  .footer2 {
+    padding: 30px 25px;
+  }
+
+  .footer2 p {
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
   .footer3 {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding: 35px 25px 45px;
+  }
+
+  .footer3 p {
+    font-size: 12px;
+    line-height: 1.7;
+    margin-bottom: 25px;
+  }
+
+  .footer4 {
+    height: 55px;
+    margin-top: 10px;
+  }
+
+  .footer4 img {
+    height: 45px;
+    max-width: 100px;
   }
 
   .popupurus2 {
-    width: 90%;
-    height: 50%;
-    left: 5%;
-    top: 25%;
+    width: 90vw;
+    max-height: 75vh;
+  }
+
+  .popupurus2 img {
+    max-height: 75vh;
   }
 
   .search {
-    width: calc(100% - 40px);
-    right: 20px;
-    top: 70px;
+    top: 68px;
+    right: 15px;
+    width: calc(100% - 30px);
+    height: 52px;
   }
 
   .ask {
-    right: 20px;
-    top: 70px;
+    top: 68px;
+    right: 15px;
+    width: calc(100% - 30px);
+    min-height: 100px;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 576px) {
   .header {
-    height: 60px;
-    padding: 0 12px;
+    height: 62px;
+    padding: 0 14px;
   }
 
   .header img {
@@ -1105,72 +1396,117 @@ body {
   }
 
   .menu {
-    font-size: 13px;
-    gap: 6px;
+    font-size: 14px;
   }
 
   .header i {
-    font-size: 16px;
-    margin-left: 5px;
-  }
-
-  .menulist {
-    top: 60px;
-    left: 10px;
-    width: calc(100% - 20px);
+    font-size: 17px;
+    margin-left: 7px;
   }
 
   .banner {
-    height: 70vh;
+    margin-top: 62px;
+    height: calc(100svh - 62px);
+    min-height: 430px;
   }
 
   .aboutbanner h1 {
     font-size: 30px;
+    letter-spacing: 0;
   }
 
   .bannerbutton {
     padding: 12px 25px;
-    font-size: 15px;
+    font-size: 14px;
+  }
+
+  .belowbanner {
+    padding: 18px 15px;
+  }
+
+  .belowbanner p {
+    font-size: 12px;
   }
 
   .models {
-    padding: 30px 15px;
+    padding: 30px 15px 20px;
   }
 
   .models h1 {
     font-size: 28px;
   }
 
-  .aboutmodels {
-    font-size: 24px;
+  .discover h2 {
+    font-size: 16px;
+  }
+
+  .swiper {
+    padding-bottom: 45px;
+  }
+
+  .swiper-slide {
+    padding: 10px 15px;
   }
 
   .modelslogo {
-    width: 110px;
+    width: 105px;
+  }
+
+  .aboutmodels {
+    font-size: 23px;
+    margin: 12px 0 18px;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: none;
+  }
+
+  .lambomodels {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .lambomodels h2 {
+    font-size: 15px;
   }
 
   .explore {
-    margin: 25px 15px;
+    padding: 0 15px;
+    margin: 25px 0;
   }
 
   .explore1,
   .explore2,
   .explore3 {
-    width: 100%;
-    max-width: 320px;
+    max-width: 100%;
+    height: 54px;
+    font-size: 14px;
   }
 
   .msg {
     width: 90%;
-    font-size: 14px;
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  .section.button {
+    padding: 20px 15px;
+  }
+
+  .section.button button {
+    max-width: 100%;
+    font-size: 13px;
   }
 
   .section1,
   .section2,
   .section3,
   .section4 {
-    height: 380px;
+    height: 400px;
+    min-height: 400px;
     padding: 25px 20px;
+    background-position: center;
   }
 
   .section1 h2,
@@ -1185,7 +1521,7 @@ body {
   .section3 h1,
   .section4 h1 {
     font-size: 30px;
-    letter-spacing: 1px;
+    margin: 10px 0 22px;
   }
 
   .section1 button,
@@ -1193,71 +1529,209 @@ body {
   .section3 button,
   .section4 button {
     width: 100%;
-    max-width: 200px;
-    margin-bottom: 10px;
+    max-width: 210px;
+    height: 48px;
+    margin-right: 0;
+    font-size: 12px;
   }
 
   .products {
     width: 92%;
     margin: 30px auto;
+    gap: 20px;
   }
 
   .products1 div {
-    height: 200px;
+    height: 210px;
   }
 
   .products1 h3 {
-    font-size: 20px;
+    font-size: 21px;
     margin: 15px;
   }
 
   .products1 h4 {
-    font-size: 14px;
+    font-size: 13px;
     margin: 0 15px 20px;
+    min-height: auto;
   }
 
   .footer {
     padding: 40px 15px;
-    gap: 25px 10px;
-  }
-
-  .footer ul {
-    width: 45%;
+    gap: 30px 15px;
   }
 
   .footer ul li {
-    font-size: 13px;
+    font-size: 12px;
+    letter-spacing: 0.4px;
   }
 
   .footer ul li:first-child {
-    font-size: 15px;
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+
+  .footer ul:last-child li i {
+    font-size: 18px;
+    margin: 0 6px;
+  }
+
+  .footer2 {
+    padding: 25px 15px;
   }
 
   .footer2 p,
   .footer3 p {
-    font-size: 12px;
+    font-size: 11px;
   }
 
-  .popupurus2 {
-    width: 94vw;
-    max-height: 70vh;
+  .footer3 {
+    padding: 30px 15px 40px;
   }
 
-  .popupurus2 img {
-    max-height: 70vh;
-  }
-}
-
-
-
-  .search {
-    width: calc(100% - 30px);
-    right: 15px;
+  .footer4 img {
+    height: 40px;
   }
 
   .ask {
     width: calc(100% - 30px);
     right: 15px;
   }
+}
 
+@media (max-width: 400px) {
+  .header {
+    padding: 0 10px;
+  }
 
+  .header img {
+    height: 36px;
+  }
+
+  .menu {
+    font-size: 12px;
+    gap: 5px;
+  }
+
+  .header i {
+    font-size: 15px;
+    margin-left: 5px;
+  }
+
+  .banner {
+    min-height: 400px;
+  }
+
+  .aboutbanner h1 {
+    font-size: 26px;
+  }
+
+  .bannerbutton {
+    padding: 11px 20px;
+    font-size: 13px;
+  }
+
+  .models h1 {
+    font-size: 25px;
+  }
+
+  .discover h2 {
+    font-size: 14px;
+  }
+
+  .aboutmodels {
+    font-size: 20px;
+  }
+
+  .section1,
+  .section2,
+  .section3,
+  .section4 {
+    height: 380px;
+    min-height: 380px;
+    padding: 20px 15px;
+  }
+
+  .section1 h2,
+  .section2 h2,
+  .section3 h2,
+  .section4 h2 {
+    font-size: 16px;
+  }
+
+  .section1 h1,
+  .section2 h1,
+  .section3 h1,
+  .section4 h1 {
+    font-size: 26px;
+  }
+
+  .section1 button,
+  .section2 button,
+  .section3 button,
+  .section4 button {
+    max-width: 190px;
+  }
+
+  .footer {
+    grid-template-columns: 1fr 1fr;
+    gap: 25px 10px;
+  }
+
+  .footer ul li {
+    font-size: 11px;
+  }
+
+  .footer ul li:first-child {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 320px) {
+  .header {
+    height: 58px;
+  }
+
+  .header img {
+    height: 32px;
+  }
+
+  .banner {
+    margin-top: 58px;
+    min-height: 380px;
+  }
+
+  .aboutbanner h1 {
+    font-size: 23px;
+  }
+
+  .menu {
+    font-size: 11px;
+  }
+
+  .header i {
+    font-size: 14px;
+  }
+
+  .explore1,
+  .explore2,
+  .explore3 {
+    font-size: 12px;
+  }
+
+  .section1 h1,
+  .section2 h1,
+  .section3 h1,
+  .section4 h1 {
+    font-size: 23px;
+  }
+
+  .footer {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .footer ul:last-child {
+    grid-column: auto;
+  }
+}
