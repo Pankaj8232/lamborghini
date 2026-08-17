@@ -57,29 +57,15 @@
       "name": "Pankaj",
       "number": "1234567890",
       "email": "Pankaj@123",
-      "password": "123456",
-      "id": "F-NViLgYZQs"
+      "password": "Pankaj()123",
+      "id": "3QVa66oyznE"
     },
     {
       "name": "Pankaj",
       "number": "1234567890",
       "email": "Pankaj@123",
-      "password": "12345",
-      "id": "E7eP4HUWT4E"
-    },
-    {
-      "name": "Pankaj",
-      "number": "1234509876",
-      "email": "Pankaj@123",
-      "password": "Pankaj@8232",
-      "id": "oZpqw8GO8wM"
-    },
-    {
-      "name": "Pankaj",
-      "number": "1234567890",
-      "email": "Pankaj@123",
-      "password": "Pankaj@8232",
-      "id": "t6P5Bv7aMT4"
+      "password": "Pankaj{}'.",
+      "id": "BAbocDzStBA"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

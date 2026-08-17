@@ -1,325 +1,225 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>login</title>
-  </head>
-  <body>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>lambo</title>
+  <link rel="stylesheet" href="./home.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css"
+    integrity="sha512-ApSLB1Pd3/bZN8fWB/RG9YhN/7bd9Hkf3AGaE2mPfebjrxagjuBtx2GcgdqIlJkUzwylBo61r9Xa9NmgBI0swA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@14.0.1/swiper-bundle.min.css" />
+</head>
 
-      body {
-        min-height: 100vh;
-        background: #050505;
-        font-family: Arial, Helvetica, sans-serif;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow-x: hidden;
-      }
-
-      .container {
-        width: 480px;
-        max-width: 90%;
-        background: #111;
-        padding: 55px 50px;
-        border: 1px solid #292929;
-        position: relative;
-        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
-      }
-
-      .container::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 4px;
-        background: #f4b400;
-      }
-
-      .container h1 {
-        color: #fff;
-        font-size: 42px;
-        font-weight: 800;
-        text-transform: uppercase;
-        letter-spacing: 4px;
-        margin-bottom: 40px;
-        position: relative;
-      }
-
-      .container h1::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: -12px;
-        width: 55px;
-        height: 3px;
-        background: #f4b400;
-      }
-
-      .container input {
-        display: block;
-        width: 100%;
-        height: 55px;
-        margin-bottom: 6px;
-        padding: 0 18px;
-        background: #050505;
-        color: #fff;
-        border: 1px solid #333;
-        outline: none;
-        border-radius: 0;
-        font-size: 15px;
-        letter-spacing: 0.5px;
-        transition: 0.3s ease;
-      }
-
-      .container input::placeholder {
-        color: #777;
-        text-transform: capitalize;
-      }
-
-      .container input:focus {
-        border-color: #f4b400;
-        background: #0b0b0b;
-      }
-
-      .container p {
-        color: #f4b400;
-        font-size: 12px;
-        font-weight: 600;
-        margin: 6px 0 16px;
-        letter-spacing: 0.5px;
-      }
-
-      .p1,
-      .p2,
-      .p3,
-      .p4 {
-        display: none;
-      }
-
-      .container button {
-        width: 100%;
-        height: 58px;
-        margin-top: 15px;
-        background: #f4b400;
-        color: #000;
-        border: 2px solid #f4b400;
-        border-radius: 0;
-        font-size: 15px;
-        font-weight: 800;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        cursor: pointer;
-        transition: 0.4s ease;
-      }
-
-      .container button:hover {
-        background: #fff;
-        border-color: #fff;
-        transform: translateY(-4px);
-        box-shadow: 0 12px 25px rgba(255, 255, 255, 0.12);
-      }
-
-      .container button:active {
-        transform: translateY(0);
-      }
-
-      @media (max-width: 768px) {
-        body {
-          padding: 40px 0;
-        }
-
-        .container {
-          width: 500px;
-          max-width: 90%;
-          padding: 45px 40px;
-        }
-
-        .container h1 {
-          font-size: 36px;
-          letter-spacing: 3px;
-          margin-bottom: 35px;
-        }
-
-        .container input {
-          height: 52px;
-          font-size: 14px;
-        }
-
-        .container button {
-          height: 55px;
-        }
-      }
-
-      @media (max-width: 576px) {
-        body {
-          padding: 30px 0;
-        }
-
-        .container {
-          width: 92%;
-          padding: 40px 25px;
-        }
-
-        .container h1 {
-          font-size: 31px;
-          letter-spacing: 2px;
-          margin-bottom: 32px;
-        }
-
-        .container h1::after {
-          width: 45px;
-          height: 2px;
-        }
-
-        .container input {
-          height: 50px;
-          padding: 0 14px;
-          font-size: 13px;
-        }
-
-        .container p {
-          font-size: 11px;
-          margin-bottom: 13px;
-        }
-
-        .container button {
-          height: 52px;
-          font-size: 13px;
-          letter-spacing: 1.5px;
-        }
-      }
-
-      @media (max-width: 400px) {
-        .container {
-          width: 94%;
-          padding: 35px 20px;
-        }
-
-        .container h1 {
-          font-size: 27px;
-          letter-spacing: 1.5px;
-        }
-
-        .container input {
-          height: 48px;
-          font-size: 12px;
-        }
-
-        .container button {
-          height: 50px;
-          font-size: 12px;
-        }
-      }
-
-      @media (max-width: 320px) {
-        .container {
-          padding: 30px 16px;
-        }
-
-        .container h1 {
-          font-size: 24px;
-        }
-
-        .container input {
-          height: 46px;
-        }
-
-        .container button {
-          height: 48px;
-        }
-      }
-    </style>
-
-    <div class="container">
-      <h1>signup</h1>
-      <input type="text" placeholder="enter your name" class="name" />
-      <p class="p1">Enter valid name</p>
-      <input
-        type="text"
-        placeholder="enter your mobile number"
-        class="number"
-      />
-      <p class="p2">Enter valid mobile number</p>
-      <input type="email" placeholder="enter your email id" class="email" />
-      <p class="p3">Enter valid email</p>
-      <input type="password" placeholder="enter password" class="password" />
-      <p class="p4">Enter valid password</p>
-      <button onclick="postproducts()">submit</button>
-
-      <script>
-        async function postproducts() {
-          let name = document.querySelector(".name").value;
-          let number = document.querySelector(".number").value;
-          let email = document.querySelector(".email").value;
-          let password = document.querySelector(".password").value;
-          let p1 = document.querySelector(".p1");
-          let p2 = document.querySelector(".p2");
-          let p3 = document.querySelector(".p3");
-          let p4 = document.querySelector(".p4");
-
-          if (name.length > 4) {
-            p1.style.display = "none";
-          } else {
-            p1.style.display = "block";
-          }
-
-          if (number.length === 10) {
-            p2.style.display = "none";
-          } else {
-            p2.style.display = "block";
-          }
-
-          if (email.length > 4) {
-            p3.style.display = "none";
-          } else {
-            p3.style.display = "block";
-          }
-
-          if (password.length > 4) {
-            p4.style.display = "none";
-          } else {
-            p4.style.display = "block";
-          }
-
-          if (
-            name.length > 4 &&
-            number.length === 10 &&
-            email.length > 4 &&
-            password.length > 4
-          ) {
-            p1.style.display = "none";
-            p1.style.display = "none";
-            p1.style.display = "none";
-            p1.style.display = "none";
-
-            let data = {
-              name: name,
-              number: number,
-              email: email,
-              password: password,
-            };
-            let apilink = await fetch("http://localhost:3000/login", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify(data),
-            });
-            alert("signup successfully");
-            window.location.href = "home.html";
-          } else {
-            alert("invalid information");
-          }
-        }
-      </script>
+<body>
+  <div class="header">
+    <div class="menu"><i id="openlist" class="fas fa-bars"></i>
+      <i id="closelist" class="fas fa-times"></i><span>Menu</span>
     </div>
-  </body>
+    <div><img src="./images/bulllogo.svg" alt=""></div>
+    <div><i onclick="openask()" class="fas fa-envelope-open"></i> <i onclick="searchbar()" class="fas fa-search"></i></div>
+  </div>
+
+  <div class="search">
+      <i id="searchclose" class="fas fa-times" onclick="closesearch()"></i>
+    <input type="text" placeholder="search on website">
+  </div>
+
+  <ul class="menulist">
+    <li><a href="">Models</a></li>
+    <li><a href="">Beyonds</a></li>
+    <li><a href="">Ownership</a></li>
+    <li><a href="">Store</a></li>
+    <li><a href="">News</a></li>
+    <li><a href="./admin.html">Admin Panel</a></li>
+    <li><a href="./users.html">Sign Up</a></li>
+  </ul>
+
+  <div class="banner">
+    <div class="aboutbanner">
+      <h1>REVULTO</h1>
+      <h1>MIURA 60' HOMAGE</h1>
+      <button class="bannerbutton">Discover More</button>
+    </div>
+  </div>
+
+  <div class="belowbanner">
+    <p>Urus SE, Urus SE Performante: Combined energy consumption: 21,4 kWh/100 Km plus 5,71 l/100km; Combined CO2
+      emissions: 140 g/km; Combined CO2 efficiency class: E; Combined fuel consumption with discharged battery: 12,9
+      l/100km; CO2 class with discharged battery: G; Urus SE Performante: Under approval, not available for sale</p>
+  </div>
+  <div class="models">
+    <div>
+      <h1>Models</h1>
+    </div>
+    <div class="discover">
+      <h2>Discover All Model</h2>
+    </div>
+  </div>
+
+  <div>
+    </head>
+
+    <body>
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img class="modelslogo" src="./images/uruslogo.svg" alt="">
+            <h1 class="aboutmodels">URUS AT IT'S PEAK</h1>
+            <img src="./images/urus.webp" alt="">
+          </div>
+          <div class="swiper-slide">
+            <img src="./images/temperario logo.svg" alt="">
+            <h1 class="aboutmodels">YOU CAN'T HIDE WHO YOU ARE</h1>
+            <img src="./images/temperario.webp" alt="">
+          </div>
+          <div class="swiper-slide">
+            <img src="./images/lambo logo.svg" alt="">
+            <h1 class="aboutmodels">FROM NOW ON</h1>
+            <img src="./images/lambo.webp" alt="">
+          </div>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+  </div>
+
+
+
+  <div class="lambomodels">
+    <h2 class="abouturus">URUS SE PERFOMANCE</h2>
+    <h2 class="abouturus2">URUS SE</h2>
+  </div>
+
+  <div class="overlap">
+    <div class="popupurus2">
+      <i id="popupclose" class="fas fa-times"></i>
+      <img src="./images/urus2.webp" alt="">
+    </div>
+  </div>
+
+  <div class="explore">
+    <div class="explore1"><a href="./model.html">EXPLORE THE MODEL</a></div>
+    <div class="explore2">START CONFIGURATION</div>
+    <div class="explore3"><a href="./enquiry.html">ENQUIRE</a> <i class="fas fa-envelope-square"></i></div>
+  </div>
+
+  <div class="msg">
+    <p>Urus SE, Urus SE Performante: Combined energy consumption: 21,4 kWh/100 Km plus 5,71 l/100km; Combined CO2
+      emissions: 140 g/km; Combined CO2 efficiency class: E; Combined fuel consumption with discharged battery: 12,9
+      l/100km; CO2 class with discharged battery: G; Urus SE Performante: Under approval, not available for sale</p>
+  </div>
+
+
+  <div class="section">
+    <div class="section button"><button onclick="section1b()">URUS SE PERFOMANCE</button><button
+        onclick="section2b()">TEMERARIO</button><button onclick="section3b()">REVULTO</button><button
+        onclick="section4b()">URUS SE</button></div>
+    <div class="section1">
+      <div>
+        <h2>Configure your</h2>
+        <h1>Urus SE Performante</h1>
+        <button>START CONFIGURATION</button>
+        <button><a href="./enquiry.html">ENQUIRE</a></button>
+      </div>
+    </div>
+
+
+    <div class="section2">
+      <div>
+        <h2>Configure your</h2>
+        <h1>TEMPERARIO</h1>
+        <button>START CONFIGURATION</button>
+        <button><a href="./enquiry.html">ENQUIRE</a></button>
+      </div>
+
+    </div>
+    <div class="section3">
+      <div>
+        <h2>Configure your</h2>
+        <h1>REVULTO</h1>
+        <button>START CONFIGURATION</button>
+        <button><a href="./enquiry.html">ENQUIRE</a></button>
+      </div>
+    </div>
+    <div class="section4">
+      <div>
+        <h2>Configure your</h2>
+        <h1>URUS SE</h1>
+        <button>START CONFIGURATION</button>
+        <button><a href="./enquiry.html">ENQUIRE</a></button>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="products">
+  </div>
+
+  <div class="footer">
+    <ul>
+      <li>COMPANY</li>
+      <li>SUSTAINABILITY</li>
+      <li>COOKIE SEETING</li>
+    </ul>
+
+    <ul>
+      <li>FINANCIALS</li>
+      <li>MEDIA CENTER</li>
+      <li>SITEMAP</li>
+    </ul>
+
+    <ul>
+      <li>CAREERS</li>
+      <li>RECALL CAMPAIGN</li>
+      <li>PRIVACY & LEGAL</li>
+    </ul>
+
+    <ul>
+      <li>NEWSLETTER</li>
+      <li>CONTACT US</li>
+      <li>ACCESSBILITY</li>
+    </ul>
+    <ul>
+      <li>FOLLOW US ON-:</li>
+      <li><i class="fab fa-instagram"></i><i class="fab fa-facebook-f"></i><i class="fab fa-linkedin"></i><i
+          class="fab fa-twitter"></i></li>
+      <li><i class="fab fa-youtube"></i><i class="fab fa-tiktok"></i><i class="fab fa-facebook-messenger"></i><i
+          class="fas fa-play"></i></li>
+    </ul>
+  </div>
+
+  <div class="footer2">
+<p>The consumption and emissions values in the website refer to your geographical IP. This value might be unrealistic if you navigate using VPN or if the position of your Internet provider is imprecise. If you believe you are incorrectly geolocalized, contact your dealer to get valid consumption and emissions information in your area.</p>
+  </div>
+
+  <div class="footer3">
+    <p>This site is protected by reCAPTCHA and the Privacy Policy and Terms of Service of Google apply.</p>
+    <p>Copyright © 2026 Automobili Lamborghini S.p.A. a company with sole shareholder subject to the management and coordination of AUDI AG.
+All rights reserved. VAT no. IT 00591801204</p>
+<p>WARNING ABOUT ILLEGAL OFFERS OF ALLEGED SHARES OF AUTOMOBILI LAMBORGHINI S.P.A.
+Automobili Lamborghini S.p.A. got the notice that several third parties across different countries are allegedly offering shares in Automobili Lamborghini S.p.A. These offers are unlawful and originate neither from Volkswagen Aktiengesellschaft nor from any of its subsidiaries.</p>
+<div class="footer4"><img src="./images/bulllogo.svg" alt=""></div>
+  </div>
+
+  <div class="ask">
+    <i id="closeask" onclick="closeask1()" class="fas fa-times"></i>
+    <h1>No Notifications</h1>
+  </div>
+
+  
+  <script src="./home.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@14.0.1/swiper-bundle.min.js"></script>
+  <script>
+    var swiper = new Swiper('.mySwiper', {
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+  </script>
+
+
+</body>
+
 </html>
