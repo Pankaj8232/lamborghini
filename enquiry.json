@@ -28,8 +28,8 @@
       "id": "XoduYW7QA2o"
     },
     {
-      "date": "3 august 2026",
-      "heading": "LONG LIVE WITH THE MIURA!",
+      "date": "3 August 2026",
+      "heading": "THE ORIGIN OF THE SUPER VELOCE LEGACY",
       "img": "https://www.lamborghini.com/sites/it-en/files/DAM/lamborghini/news/2026/08_03_miura/cover.jpg",
       "id": "YbTAkWGtxSI"
     },
@@ -57,15 +57,15 @@
       "name": "Pankaj",
       "number": "1234567890",
       "email": "Pankaj@123",
-      "password": "Pankaj()123",
-      "id": "3QVa66oyznE"
+      "password": "Pankajp][]';.,",
+      "id": "vrC2zy9kdAE"
     },
     {
       "name": "Pankaj",
-      "number": "1234567890",
+      "number": "1234567899",
       "email": "Pankaj@123",
-      "password": "Pankaj{}'.",
-      "id": "BAbocDzStBA"
+      "password": "Pankaj[]';",
+      "id": "98zoFNJx4yc"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

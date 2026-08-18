@@ -3,430 +3,632 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>products</title>
-</head>
-<body>
+    <title>Products Admin</title>
 
     <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, Helvetica, sans-serif;
-}
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, Helvetica, sans-serif;
+        }
 
-body{
-    min-height:100vh;
-    padding:40px;
-    background:
-    linear-gradient(rgba(0,0,0,.82),rgba(0,0,0,.82)),
-    url("https://www.lamborghini.com/sites/it-en/files/DAM/lamborghini/news/2026/08_03_miura/cover.jpg");
-    background-size:cover;
-    background-position:center;
-    background-attachment:fixed;
-}
+        body{
+            min-height:100vh;
+            padding:40px 20px;
+            background:
+            linear-gradient(rgba(0,0,0,.84),rgba(0,0,0,.84)),
+            url("https://www.lamborghini.com/sites/it-en/files/DAM/lamborghini/news/2026/08_03_miura/cover.jpg");
+            background-size:cover;
+            background-position:center;
+            background-attachment:fixed;
+            color:white;
+        }
 
-.container{
-    width:90%;
-    max-width:1100px;
-    margin:auto;
-    background:rgba(20,20,20,.96);
-    border:1px solid rgba(255,255,255,.08);
-    border-radius:18px;
-    padding:40px;
-    backdrop-filter:blur(10px);
-    box-shadow:0 20px 50px rgba(0,0,0,.55);
-}
+        .container{
+            width:100%;
+            max-width:1100px;
+            margin:auto;
+            padding:45px;
+            background:rgba(18,18,18,.97);
+            border:1px solid rgba(244,180,0,.18);
+            border-radius:20px;
+            box-shadow:
+                0 25px 70px rgba(0,0,0,.7),
+                0 0 30px rgba(244,180,0,.05);
+        }
 
-h1{
-    text-align:center;
-    color:#f4b400;
-    font-size:42px;
-    margin-bottom:35px;
-    letter-spacing:2px;
-}
+        h1{
+            text-align:center;
+            color:#f4b400;
+            font-size:42px;
+            letter-spacing:2px;
+            margin-bottom:40px;
+            text-transform:uppercase;
+        }
 
-input,
-select{
-    width:100%;
-    height:55px;
-    margin:14px 0;
-    padding:0 18px;
-    background:#111;
-    color:#fff;
-    border:2px solid #333;
-    border-radius:8px;
-    font-size:16px;
-    transition:.3s;
-}
+        .section{
+            margin-top:35px;
+            padding:25px;
+            background:#111;
+            border:1px solid #292929;
+            border-radius:14px;
+        }
 
-input::placeholder{
-    color:#999;
-}
+        .section:first-of-type{
+            margin-top:0;
+        }
 
-select{
-    cursor:pointer;
-}
+        .section-title{
+            color:#f4b400;
+            font-size:22px;
+            margin-bottom:20px;
+            padding-bottom:12px;
+            border-bottom:1px solid #3b3b3b;
+            letter-spacing:1px;
+        }
 
-input:focus,
-select:focus{
-    outline:none;
-    border-color:#f4b400;
-    box-shadow:0 0 15px rgba(244,180,0,.35);
-}
+        .input-group{
+            display:grid;
+            grid-template-columns:1fr;
+            gap:14px;
+        }
 
-button{
-    width:100%;
-    height:55px;
-    margin-top:18px;
-    border:none;
-    border-radius:8px;
-    background:#f4b400;
-    color:#000;
-    font-size:17px;
-    font-weight:700;
-    letter-spacing:1px;
-    cursor:pointer;
-    transition:.35s;
-}
+        input,
+        select{
+            width:100%;
+            height:55px;
+            padding:0 18px;
+            background:#181818;
+            color:#fff;
+            border:2px solid #333;
+            border-radius:8px;
+            outline:none;
+            font-size:16px;
+            transition:.3s;
+        }
 
-button:hover{
-    background:#ffd54f;
-    transform:translateY(-3px);
-    box-shadow:0 12px 25px rgba(244,180,0,.45);
-}
+        input::placeholder{
+            color:#888;
+        }
 
-table{
-    width:100%;
-    margin-top:35px;
-    border-collapse:collapse;
-    overflow:hidden;
-    border-radius:10px;
-}
+        input:focus,
+        select:focus{
+            border-color:#f4b400;
+            box-shadow:0 0 15px rgba(244,180,0,.25);
+        }
 
-table th{
-    background:#f4b400;
-    color:#000;
-    padding:16px;
-    font-size:17px;
-}
+        select{
+            cursor:pointer;
+        }
 
-table td{
-    padding:15px;
-    text-align:center;
-    background:#181818;
-    color:#fff;
-    border:1px solid #333;
-    word-break:break-word;
-}
+        select option{
+            background:#181818;
+            color:#fff;
+        }
 
-table tr:nth-child(even) td{
-    background:#222;
-}
+        button{
+            width:100%;
+            height:55px;
+            margin-top:18px;
+            border:none;
+            border-radius:8px;
+            background:#f4b400;
+            color:#000;
+            font-size:17px;
+            font-weight:bold;
+            letter-spacing:1px;
+            cursor:pointer;
+            transition:.35s;
+        }
 
-table tr:hover td{
-    background:#2d2d2d;
-}
+        button:hover{
+            background:#ffd54f;
+            transform:translateY(-3px);
+            box-shadow:0 12px 25px rgba(244,180,0,.4);
+        }
 
-.deleteproduct{
-    border:2px solid #ff4d4d;
-}
+        .table-wrapper{
+            width:100%;
+            overflow-x:auto;
+            border-radius:10px;
+        }
 
-.editproduct{
-    border:2px solid #f4b400;
-}
+        table{
+            width:100%;
+            min-width:650px;
+            border-collapse:collapse;
+            overflow:hidden;
+        }
 
-.editdate,
-.editheading,
-.editlink{
-    background:#191919;
-}
+        table th{
+            background:#f4b400;
+            color:#000;
+            padding:16px;
+            font-size:16px;
+            text-transform:uppercase;
+        }
 
-.section-title{
-    font-size:24px;
-    color:#f4b400;
-    margin:35px 0 15px;
-    padding-bottom:10px;
-    border-bottom:2px solid #f4b400;
-    letter-spacing:1px;
-}
+        table td{
+            padding:15px;
+            text-align:center;
+            background:#181818;
+            color:#fff;
+            border:1px solid #333;
+            word-break:break-word;
+        }
 
-@media (max-width: 768px) {
-    body {
-        padding: 20px 12px;
-        background-attachment:scroll;
-    }
+        table tr:nth-child(even) td{
+            background:#222;
+        }
 
-    .container {
-        width: 100%;
-        padding: 25px 18px;
-        border-radius: 14px;
-    }
+        table tr:hover td{
+            background:#303030;
+        }
 
-    h1 {
-        font-size: 30px;
-        margin-bottom: 25px;
-    }
+        .delete-section{
+            border-left:4px solid #ff4d4d;
+        }
 
-    input,
-    select {
-        height: 52px;
-        margin: 10px 0;
-        padding: 0 14px;
-        font-size: 14px;
-    }
+        .delete-section .section-title{
+            color:#ff5c5c;
+        }
 
-    button {
-        height: 52px;
-        margin-top: 15px;
-        font-size: 15px;
-    }
+        .deleteproduct{
+            border:2px solid #ff4d4d;
+        }
 
-    .section-title {
-        font-size: 20px;
-        margin: 25px 0 12px;
-    }
+        .deleteproduct:focus{
+            border-color:#ff4d4d;
+            box-shadow:0 0 15px rgba(255,77,77,.25);
+        }
 
-    table {
-        display: block;
-        width: 100%;
-        overflow-x: auto;
-        margin-top: 25px;
-        white-space: nowrap;
-        border-collapse: collapse;
-    }
+        .edit-section{
+            border-left:4px solid #f4b400;
+        }
 
-    table th {
-        padding: 13px 15px;
-        font-size: 14px;
-    }
+        .editproduct{
+            border:2px solid #f4b400;
+        }
 
-    table td {
-        padding: 12px 15px;
-        font-size: 13px;
-    }
+        .edit-fields{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:14px;
+        }
 
-    .deleteproduct,
-    .editproduct {
-        width: 100%;
-        margin-top: 20px;
-    }
+        .edit-fields .editlink{
+            grid-column:1 / -1;
+        }
 
-    .editdate,
-    .editheading,
-    .editlink {
-        width: 100%;
-        margin-top: 15px;
-    }
-}
+        .editproduct{
+            margin-top:14px;
+        }
 
-@media (max-width: 480px) {
-    body {
-        padding: 10px;
-    }
+        @media(max-width:768px){
 
-    .container {
-        padding: 22px 14px;
-        border-radius: 12px;
-    }
+            body{
+                padding:20px 12px;
+                background-attachment:scroll;
+            }
 
-    h1 {
-        font-size: 25px;
-        letter-spacing: 1px;
-        margin-bottom: 22px;
-    }
+            .container{
+                padding:28px 20px;
+                border-radius:16px;
+            }
 
-    input,
-    select {
-        height: 48px;
-        margin: 8px 0;
-        padding: 0 12px;
-        font-size: 13px;
-        border-width: 1px;
-    }
+            h1{
+                font-size:30px;
+                margin-bottom:28px;
+            }
 
-    button {
-        height: 48px;
-        margin-top: 12px;
-        font-size: 14px;
-    }
+            .section{
+                padding:20px;
+                margin-top:25px;
+            }
 
-    table {
-        margin-top: 22px;
-    }
+            .section-title{
+                font-size:20px;
+            }
 
-    table th {
-        padding: 11px 13px;
-        font-size: 13px;
-    }
+            input,
+            select{
+                height:52px;
+                font-size:14px;
+            }
 
-    table td {
-        padding: 10px 13px;
-        font-size: 12px;
-    }
+            button{
+                height:52px;
+                font-size:15px;
+            }
 
-    .deleteproduct,
-    .editproduct {
-        margin-top: 18px;
-    }
+            table{
+                min-width:600px;
+            }
 
-    .editdate,
-    .editheading,
-    .editlink {
-        margin-top: 12px;
-    }
-}
+            table th{
+                padding:13px 15px;
+                font-size:14px;
+            }
 
-@media (max-width: 360px) {
-    body {
-        padding: 7px;
-    }
+            table td{
+                padding:12px 15px;
+                font-size:13px;
+            }
 
-    .container {
-        padding: 20px 12px;
-    }
+            .edit-fields{
+                grid-template-columns:1fr;
+            }
 
-    h1 {
-        font-size: 22px;
-    }
+            .edit-fields .editlink{
+                grid-column:auto;
+            }
+        }
 
-    input,
-    select,
-    button {
-        height: 46px;
-    }
+        @media(max-width:480px){
 
-    input,
-    select {
-        font-size: 12px;
-    }
+            body{
+                padding:10px;
+            }
 
-    button {
-        font-size: 13px;
-    }
+            .container{
+                padding:22px 14px;
+                border-radius:13px;
+            }
 
-    table th {
-        padding: 9px 11px;
-        font-size: 12px;
-    }
+            h1{
+                font-size:24px;
+                letter-spacing:1px;
+                margin-bottom:22px;
+            }
 
-    table td {
-        padding: 9px 11px;
-        font-size: 11px;
-    }
-}
+            .section{
+                padding:16px;
+                border-radius:11px;
+            }
+
+            .section-title{
+                font-size:18px;
+                margin-bottom:16px;
+            }
+
+            input,
+            select{
+                height:48px;
+                padding:0 13px;
+                font-size:13px;
+            }
+
+            button{
+                height:48px;
+                font-size:14px;
+            }
+
+            table{
+                min-width:550px;
+            }
+
+            table th{
+                padding:11px 13px;
+                font-size:12px;
+            }
+
+            table td{
+                padding:10px 13px;
+                font-size:12px;
+            }
+        }
+
+        @media(max-width:360px){
+
+            body{
+                padding:7px;
+            }
+
+            .container{
+                padding:18px 11px;
+            }
+
+            h1{
+                font-size:21px;
+            }
+
+            .section{
+                padding:13px;
+            }
+
+            input,
+            select,
+            button{
+                height:46px;
+            }
+
+            input,
+            select{
+                font-size:12px;
+            }
+
+            button{
+                font-size:13px;
+            }
+        }
     </style>
-     <div class="container">
-    <h1>🛒 Products section</h1>
+</head>
 
- 
+<body>
 
-    <input type="text" placeholder="enter date" class="date">
-    <input type="text" placeholder="enter heading" class="heading">
-    <input type="text" placeholder="enter img link" class="link">
-    <button onclick="postproducts()">submit</button>
+    <div class="container">
 
-    <table border="2px" cellspacing="5px" cellpadding="5px">
-        <tr>
-            <th>date</th>
-            <th>heading</th>
-            <th>product</th>
-        </tr>
-    </table>
+        <h1>🛒 Products Section</h1>
 
-    <select name="" class="deleteproduct" onchange="deletedata()">
-        <option value="" disabled selected>select product for delete</option>
-    </select>
+        <div class="section">
 
-    <input type="text" placeholder="enter edited date " class="editdate">
-    <input type="text" placeholder="enter edit heading" class="editheading">
-    <input type="text" placeholder="enter edited img link" class="editlink">
-    <select name="" id="" class="editproduct" onchange="editdata()">
-        <option value="" disabled selected>select product for edit</option>
-    </select>
+            <div class="section-title">
+                Add New Product
+            </div>
+
+            <div class="input-group">
+
+                <input
+                    type="text"
+                    placeholder="Enter date"
+                    class="date"
+                >
+
+                <input
+                    type="text"
+                    placeholder="Enter heading"
+                    class="heading"
+                >
+
+                <input
+                    type="text"
+                    placeholder="Enter image link"
+                    class="link"
+                >
+
+            </div>
+
+            <button onclick="postproducts()">
+                Add Product
+            </button>
+
+        </div>
+
+
+        <div class="section">
+
+            <div class="section-title">
+                Products List
+            </div>
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <tr>
+                        <th>Date</th>
+                        <th>Heading</th>
+                        <th>Product</th>
+                    </tr>
+
+                </table>
+
+            </div>
+
+        </div>
+
+
+        <div class="section delete-section">
+
+            <div class="section-title">
+                Delete Product
+            </div>
+
+            <select
+                class="deleteproduct"
+                onchange="deletedata()"
+            >
+
+                <option value="" disabled selected>
+                    Select product for delete
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="section edit-section">
+
+            <div class="section-title">
+                Edit Product
+            </div>
+
+            <div class="edit-fields">
+
+                <input
+                    type="text"
+                    placeholder="Enter edited date"
+                    class="editdate"
+                >
+
+                <input
+                    type="text"
+                    placeholder="Enter edited heading"
+                    class="editheading"
+                >
+
+                <input
+                    type="text"
+                    placeholder="Enter edited image link"
+                    class="editlink"
+                >
+
+            </div>
+
+            <select
+                class="editproduct"
+                onchange="editdata()"
+            >
+
+                <option value="" disabled selected>
+                    Select product for edit
+                </option>
+
+            </select>
+
+        </div>
 
     </div>
 
+
     <script>
+
         async function postproducts(){
-            let link=document.querySelector(".link").value;
-            let date=document.querySelector(".date").value;
-            let heading=document.querySelector(".heading").value;
 
-           if(window.confirm("are you sure to add product")){
-              let data={date:date,heading:heading,img:link}
-            let apilink=await fetch("http://localhost:3000/products",{
-                method:"POST",
-                body:JSON.stringify(data),
-                headers:{
-                    "Content-Type":"application/json"
-                }
-            })
-             alert("product added successfully")
-           }
-           window.location.reload()
+            let link = document.querySelector(".link").value;
+            let date = document.querySelector(".date").value;
+            let heading = document.querySelector(".heading").value;
+
+            if(window.confirm("Are you sure to add product")){
+
+                let data = {
+                    date: date,
+                    heading: heading,
+                    img: link
+                };
+
+                let apilink = await fetch(
+                    "http://localhost:3000/products",
+                    {
+                        method:"POST",
+
+                        body:JSON.stringify(data),
+
+                        headers:{
+                            "Content-Type":"application/json"
+                        }
+                    }
+                );
+
+                alert("Product added successfully");
+            }
+
+            window.location.reload();
         }
 
-       async function getprodcuts(){
-        let apilink=await fetch("http://localhost:3000/products")
-        let data=await apilink.json()
-        let table=document.querySelector("table")
-        let deleteproduct=document.querySelector(".deleteproduct")
-        let editproduct=document.querySelector(".editproduct")
-        for(let i=0;i<data.length;i++){
-            table.innerHTML+=`
-            <tr>
-                <td>${data[i].date}</td>
-               <td>${data[i].heading}</td>
-               <td>${data[i].img}</td> 
-            </tr>            
-            `
-            deleteproduct.innerHTML+=`
-            <option value="${data[i].id}">${data[i].date}</option>
-            `
-            editproduct.innerHTML+=`
-            <option value="${data[i].id}">${data[i].date}</option>
-            `
-        }         
-       }
 
-       getprodcuts()
+        async function getprodcuts(){
 
-       async function deletedata(){
-        let deleteproduct=document.querySelector(".deleteproduct").value;
-        if(window.confirm("are you sure to delete data")){
-             let apilink=await fetch(`http://localhost:3000/products/${deleteproduct}`,{
-            method:"DELETE"
-        })
-        alert("product deleted successfully")
+            let apilink = await fetch(
+                "http://localhost:3000/products"
+            );
+
+            let data = await apilink.json();
+
+            let table = document.querySelector("table");
+
+            let deleteproduct =
+                document.querySelector(".deleteproduct");
+
+            let editproduct =
+                document.querySelector(".editproduct");
+
+
+            for(let i=0; i<data.length; i++){
+
+                table.innerHTML += `
+                    <tr>
+                        <td>${data[i].date}</td>
+                        <td>${data[i].heading}</td>
+                        <td>${data[i].img}</td>
+                    </tr>
+                `;
+
+
+                deleteproduct.innerHTML += `
+                    <option value="${data[i].id}">
+                        ${data[i].heading}
+                    </option>
+                `;
+
+
+                editproduct.innerHTML += `
+                    <option value="${data[i].id}">
+                        ${data[i].heading}
+                    </option>
+                `;
+            }
         }
-        window.location.reload()
-       }
-
-       async function editdata(){
-        let editproduct=document.querySelector(".editproduct").value;
-        let editdate=document.querySelector(".editdate").value;
-        let editheading=document.querySelector(".editheading").value;
-        let editlink=document.querySelector(".editlink").value;
-
-       if(window.confirm("are you sure to edit data")){
-          let apilink=await fetch(`http://localhost:3000/products/${editproduct}`,{
-            method:"PATCH",
-            headers:{
-                "Content-Type":"application/json"
-            },
-            body:JSON.stringify({date:editdate,heading:editheading,img:editlink})
-        })
-            alert("product edited successfully")
-       }
-        window.location.reload()
-       }
 
 
+        getprodcuts();
 
+
+        async function deletedata(){
+
+            let deleteproduct =
+                document.querySelector(".deleteproduct").value;
+
+
+            if(window.confirm("Are you sure to delete data")){
+
+                let apilink = await fetch(
+                    `http://localhost:3000/products/${deleteproduct}`,
+                    {
+                        method:"DELETE"
+                    }
+                );
+
+                alert("Product deleted successfully");
+            }
+
+            window.location.reload();
+        }
+
+
+        async function editdata(){
+
+            let editproduct =
+                document.querySelector(".editproduct").value;
+
+            let editdate =
+                document.querySelector(".editdate").value;
+
+            let editheading =
+                document.querySelector(".editheading").value;
+
+            let editlink =
+                document.querySelector(".editlink").value;
+
+
+            if(window.confirm("Are you sure to edit data")){
+
+                let apilink = await fetch(
+                    `http://localhost:3000/products/${editproduct}`,
+                    {
+                        method:"PATCH",
+
+                        headers:{
+                            "Content-Type":"application/json"
+                        },
+
+                        body:JSON.stringify({
+                            date:editdate,
+                            heading:editheading,
+                            img:editlink
+                        })
+                    }
+                );
+
+                alert("Product edited successfully");
+            }
+
+            window.location.reload();
+        }
 
     </script>
 
-    
 </body>
 </html>
